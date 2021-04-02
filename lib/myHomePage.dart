@@ -5,27 +5,12 @@ import 'widgets/new_transaction.dart';
 import 'widgets/transaction_list.dart';
 
 class MyHomePage extends StatefulWidget {
-  // String titleInput;
-  // String amountInput;
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Transaction> _userTransaction = [
-    // Transaction(
-    //   id: 't1',
-    //   title: 'Nike Jordan',
-    //   amount: 699.50,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: 't2',
-    //   title: 'Groceries',
-    //   amount: 539.50,
-    //   date: DateTime.now(),
-    // ),
-  ];
+  final List<Transaction> _userTransaction = [];
 
   List<Transaction> get _recentTransactions {
     return _userTransaction.where((transaction) {
