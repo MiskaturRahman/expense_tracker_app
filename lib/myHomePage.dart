@@ -38,11 +38,12 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   // ignore: unused_element
-  void _addTransaction(String newTitle, double newAmount) {
+  void _addTransaction(
+      String newTitle, double newAmount, DateTime choosenDate) {
     final newTransaction = Transaction(
       title: newTitle,
       amount: newAmount,
-      date: DateTime.now(),
+      date: choosenDate,
       id: DateTime.now().toString(),
     );
 
@@ -64,6 +65,12 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  void _deleteTransaction(String id) {
+    setState(() {
+      _userTransaction.removeWhere((transaction) => transaction.id == id);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Chart(_recentTransactions),
-            TransactionList(_userTransaction),
+            TransactionList(_userTransaction, _deleteTransaction),
           ],
         ),
       ),
